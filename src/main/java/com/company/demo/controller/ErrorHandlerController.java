@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Slf4j
@@ -19,6 +20,15 @@ public class ErrorHandlerController {
         log.info("Handle Exception");
         ErrorMessage errorMessage = new ErrorMessage();
         errorMessage.setMessage(exception.getMessage());
+        errorMessage.setDate(LocalDateTime.now());
+        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(IOException.class)
+    public ResponseEntity<ErrorMessage> handleIOException() {
+        log.info("Handler IOException");
+        ErrorMessage errorMessage = new ErrorMessage();
+        errorMessage.setMessage("Wrong api usage" + errorMessage.getMessage());
         errorMessage.setDate(LocalDateTime.now());
         return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
