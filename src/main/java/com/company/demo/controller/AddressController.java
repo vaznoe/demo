@@ -2,10 +2,12 @@ package com.company.demo.controller;
 
 import com.company.demo.entity.Address;
 import com.company.demo.service.AddressService;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController

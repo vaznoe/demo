@@ -28,7 +28,7 @@ public class ErrorHandlerController {
     public ResponseEntity<ErrorMessage> handleIOException() {
         log.info("Handler IOException");
         ErrorMessage errorMessage = new ErrorMessage();
-        errorMessage.setMessage("Wrong api usage" + errorMessage.getMessage());
+        errorMessage.setMessage("Wrong api usage " + errorMessage.getMessage());
         errorMessage.setDate(LocalDateTime.now());
         return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
