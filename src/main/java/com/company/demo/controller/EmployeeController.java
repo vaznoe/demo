@@ -29,7 +29,7 @@ public class EmployeeController {
        return employeeService.update(employee);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id) {
         employeeService.delete(id);
     }
