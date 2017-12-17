@@ -1,12 +1,12 @@
 package com.company.demo.service;
 
-import com.company.demo.entity.User;
+import com.company.demo.entity.MyUser;
 
 public interface UserService {
 
-    User get(long id);
+    MyUser get(long id);
 
-    void save(long id, String firstName, String lastName, int age);
+    void save(MyUser user);
 
     String getUuid();
 }

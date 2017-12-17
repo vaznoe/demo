@@ -1,7 +1,9 @@
 package com.company.demo.service.impl;
 
 import com.company.demo.entity.Address;
+import com.company.demo.repository.AddressRepository;
 import com.company.demo.service.AddressService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,39 +13,38 @@ import java.util.stream.Collectors;
 @Service
 public class AddressServiceImpl implements AddressService {
 
-    private List<Address> addresses = new ArrayList<>();
+    @Autowired
+    private AddressRepository addressRepository;
 
     @Override
     public Address get(long id) {
-        return addresses.stream().filter(address -> address.getId() == id).findFirst().get();
+      return addressRepository.findOne(id);
     }
 
     @Override
     public void save(Address address) {
-        addresses.add(address);
+        addressRepository.save(address);
     }
 
     @Override
     public Address update(Address address) {
-        Address myAddress = addresses.stream().filter(address1 -> address.getId() == address1.getId()).findFirst().get();
-        myAddress.setAddress(address.getAddress());
-        return myAddress;
+         addressRepository.delete(address.getId());
+        return addressRepository.save(address);
     }
 
     @Override
     public void delete(long id) {
-        addresses.remove(addresses.stream().filter(address -> address.getId() == id)
-                .findFirst().get());
+        addressRepository.delete(id);
     }
 
     @Override
     public List<Address> getAll() {
-        return addresses;
+        return (List<Address>) addressRepository.findAll();
     }
 
     @Override
-    public List<Address> findAddressStartingWithLetter(char letter) {
-        return addresses.stream()
-                .filter(address -> address.getAddress().startsWith(String.valueOf(letter))).collect(Collectors.toList());
+    public Address findAddressByCitizen(String citizen) {
+        addressRepository.findByCitizen(citizen);
+        return null;
     }
 }

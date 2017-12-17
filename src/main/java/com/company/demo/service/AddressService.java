@@ -16,6 +16,6 @@ public interface AddressService {
 
     List<Address> getAll();
 
-    List<Address> findAddressStartingWithLetter(char letter);
+    Address findAddressByCitizen(String citizen);
 
 }
