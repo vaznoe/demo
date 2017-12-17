@@ -27,12 +27,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee update(String firstName, String lastName, String experience, String position, double salary) {
-        Employee employee = new Employee();
-        employee.setFirstName(firstName);
-//                employees.stream().filter(employee2 -> employee.getId() == employee2.getId()).findFirst().get();
-//        employee1.setFirstName("Stepan");
-        return null;
+    public Employee update(Employee employee) {
+        Employee oldEmployee = employees.stream().filter(element -> employee.getId() == element.getId()).findFirst().get();
+        oldEmployee.setFirstName(employee.getFirstName());
+        oldEmployee.setLastName(employee.getLastName());
+        oldEmployee.setExperience(employee.getExperience());
+        oldEmployee.setPosition(employee.getPosition());
+        oldEmployee.setSalary(employee.getSalary());
+        return oldEmployee;
     }
 
     @Override

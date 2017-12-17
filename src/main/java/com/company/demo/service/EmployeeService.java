@@ -10,7 +10,7 @@ public interface EmployeeService {
 
     void save(Employee employee);
 
-    Employee update(String firstName, String lastName, String experience, String position, double salary);
+    Employee update(Employee employee);
 
     void delete(long id);
 

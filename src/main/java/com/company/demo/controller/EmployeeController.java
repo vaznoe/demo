@@ -20,22 +20,13 @@ public class EmployeeController {
     }
 
     @PostMapping("/add")
-    public void save(@RequestParam("id") long id,
-                     @RequestParam("firstName") String firstName,
-                     @RequestParam("lastName") String lastName,
-                     @RequestParam("experience") String experience,
-                     @RequestParam("position") String position,
-                     @RequestParam("salary"), double salary) {
-        employeeService.save(id, firstName, lastName, experience, position, salary);
+    public void save(@RequestBody Employee employee) {
+        employeeService.save(employee);
     }
 
     @PutMapping("/put")
-    public Employee update(@RequestParam("firstName") String firstName,
-                           @RequestParam("lastName") String lastName,
-                           @RequestParam("experience") String experience,
-                           @RequestParam("position") String position,
-                           @RequestParam("salary"), double salary) {
-       return employeeService.update(firstName, lastName, experience, position, salary);
+    public Employee update(@RequestBody Employee employee) {
+       return employeeService.update(employee);
     }
 
     @DeleteMapping("/delete")
