@@ -8,7 +8,7 @@ public interface AddressService {
 
     Address get(long id);
 
-    void save(Address address);
+    Address save(Address address);
 
     Address update(Address address);
 
@@ -16,6 +16,6 @@ public interface AddressService {
 
     List<Address> getAll();
 
-    Address findAddressByCitizen(String citizen);
+    Address findAddressByZipCode(String citizen);
 
 }

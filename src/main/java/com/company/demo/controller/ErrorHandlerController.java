@@ -17,7 +17,7 @@ public class ErrorHandlerController {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorMessage> handleException(Exception exception) {
-        log.info("Handle Exception");
+//        log.info("Handle Exception");
         ErrorMessage errorMessage = new ErrorMessage();
         errorMessage.setMessage(exception.getMessage());
         errorMessage.setDate(LocalDateTime.now());
@@ -26,7 +26,7 @@ public class ErrorHandlerController {
 
     @ExceptionHandler(IOException.class)
     public ResponseEntity<ErrorMessage> handleIOException() {
-        log.info("Handler IOException");
+//        log.info("Handler IOException");
         ErrorMessage errorMessage = new ErrorMessage();
         errorMessage.setMessage("Wrong api usage " + errorMessage.getMessage());
         errorMessage.setDate(LocalDateTime.now());

@@ -6,9 +6,7 @@ import com.company.demo.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class AddressServiceImpl implements AddressService {
@@ -22,13 +20,12 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void save(Address address) {
-        addressRepository.save(address);
+    public Address save(Address address) {
+        return addressRepository.save(address);
     }
 
     @Override
     public Address update(Address address) {
-         addressRepository.delete(address.getId());
         return addressRepository.save(address);
     }
 
@@ -43,8 +40,8 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public Address findAddressByCitizen(String citizen) {
-        addressRepository.findByCitizen(citizen);
+    public Address findAddressByZipCode(String citizen) {
+        addressRepository.findAddressByZipCode(citizen);
         return null;
     }
 }

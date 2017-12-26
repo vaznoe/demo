@@ -20,19 +20,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public MyUser get(long id) {
         MyUser user = userRepository.findOne(id);
-        log.info("get request for myUser {} has been sent", user);
+//        log.info("get request for myUser {} has been sent", user);
         return user;
     }
 
     @Override
     public void save(MyUser user) {
         userRepository.save(user);
-        log.info("myUser has been added {}", user);
+//        log.info("myUser has been added {}", user);
     }
 
     @Override
     public String getUuid() {
-        log.info("get request for uuid was sent. current uuid {}", uuid);
+//        log.info("get request for uuid was sent. current uuid {}", uuid);
         return uuid;
     }
 }

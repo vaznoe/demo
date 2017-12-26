@@ -15,8 +15,8 @@ public class AddressController {
     AddressService addressService;
 
     @PostMapping("/add")
-    public void save(@RequestBody Address address) {
-        addressService.save(address);
+    public Address save(@RequestBody Address address) {
+        return addressService.save(address);
     }
 
     @GetMapping("/{id}")
@@ -39,8 +39,8 @@ public class AddressController {
         return addressService.getAll();
     }
 
-    @GetMapping("/find_address_by_citizen")
-    public Address find(String citizen) {
-        return addressService.findAddressByCitizen(citizen);
+    @GetMapping("/find_address_by_zipCode")
+    public Address find(String zipCode) {
+        return addressService.findAddressByZipCode(zipCode);
     }
 }
