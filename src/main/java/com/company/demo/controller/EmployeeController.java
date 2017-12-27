@@ -20,8 +20,8 @@ public class EmployeeController {
     }
 
     @PostMapping("/add")
-    public void save(@RequestBody Employee employee) {
-        employeeService.save(employee);
+    public Employee save(@RequestBody Employee employee) {
+       return employeeService.save(employee);
     }
 
     @PutMapping("/put")

@@ -8,7 +8,7 @@ public interface EmployeeService {
 
     Employee get(long id);
 
-    void save(Employee employee);
+    Employee save(Employee employee);
 
     Employee update(Employee employee);
 
