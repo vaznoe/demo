@@ -39,12 +39,12 @@ public class EmployeeController {
         return employeeService.getAll();
     }
 
-    @GetMapping("/find_position")
+    @GetMapping("/find_by_position/{position}")
     public List<Employee> findByPosition(@PathVariable String position) {
         return employeeService.findByPosition(position);
     }
 
-    @GetMapping("/find_experience")
+    @GetMapping("/find_by_experience/{experience}")
     public List<Employee> findByExperience(@PathVariable String experience) {
         return employeeService.findByExperience(experience);
     }

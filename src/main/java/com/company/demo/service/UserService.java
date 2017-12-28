@@ -6,7 +6,7 @@ public interface UserService {
 
     MyUser get(long id);
 
-    void save(MyUser user);
+    MyUser save(MyUser user);
 
     String getUuid();
 }

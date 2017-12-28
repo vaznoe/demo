@@ -13,8 +13,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/save")
-    public void save(@RequestBody MyUser user) {
-        userService.save(user);
+    public MyUser save(@RequestBody MyUser user) {
+        return userService.save(user);
     }
 
     @GetMapping("/{id}")
