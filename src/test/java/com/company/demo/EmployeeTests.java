@@ -103,7 +103,19 @@ public class EmployeeTests {
                 .pathParam("position", employee.getPosition())
                 .body(employee)
                 .when()
-                .get("/employee/find_position")
+                .get("/employee/find_by_position/{position}")
+                .as(List.class);
+        System.out.println(response);
+    }
+
+    @Test
+    public void employeeControllerFindExperienceTest() {
+        Employee employee = employeeRepository.save(getEmployee());
+        List response = given()
+                .pathParam("experience", employee.getExperience())
+                .body(employee)
+                .when()
+                .get("/employee/find_by_experience/{experience}")
                 .as(List.class);
         System.out.println(response);
     }
